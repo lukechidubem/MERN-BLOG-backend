@@ -139,7 +139,7 @@ app.delete("/blog/:id", deleteBlogById);
 app.use("/", userRoute);
 
 mongoose
-  .connect("mongodb://localhost:27017/blogs")
+  .connect(process.env.API_KEY)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
