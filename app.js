@@ -42,13 +42,18 @@ const upload2 = multer({
 const uploadImage = upload2.single("image");
 
 function createBlog3(req, res) {
+  // const url =
+  //   req.protocol + "://" + req.hostname + "/static/" + req.file.filename;
+
   const newBlog = req.body;
+  // newBlog.image = url;
   console.log(req.file);
   blogModel.create({
     author: newBlog.author,
     title: newBlog.title,
     body: newBlog.body,
     image: {
+      // data: newBlog.image,
       data: req.file.filename,
       contentType: "image/png",
     },
